@@ -1,0 +1,36 @@
+{% include'customer_header.html' %}
+
+   
+ <!-- ======= Hero Section ======= -->
+  <section id="hero" style="max-height: 500px;min-height: 500px">
+    <div class="hero-container">
+     <!--  <h3></h3> -->
+      
+     
+    </div>
+  </section><!-- End Hero -->
+
+
+		<center>
+			<h2>VENUE</h2>
+			<table class="table" style="width: 700px;">
+				<tr>
+					<th>Sl.no</th>
+					<th>Venue</th>
+					<th>Place</th>
+					<th>Details</th>
+				</tr>
+				{% for row in data['venue'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{row['venue']}}</td>
+					<td>{{row['place']}}</td>
+					<td>{{row['details']}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+
+		</center>
+	</form>
+		
+{% include'footer.html' %}

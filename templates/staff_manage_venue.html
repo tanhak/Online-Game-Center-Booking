@@ -1,0 +1,103 @@
+{% include'staff_header.html' %}
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+     <!--  <h3></h3> -->
+     
+     
+  
+
+
+	<center>
+		<form method="post">
+		<center>
+
+				{% if data['res'] %}
+				<h2>UPDATE VENUE</h2>
+			<table class="table" style="width: 600px;color: white">
+				<tr>
+					<th>Venue</th>
+					<td><input type="text" name="venue" value="{{data['res'][0]['venue']}}" required class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Place</th>
+					<td><input type="text" name="pl" value="{{data['res'][0]['place']}}" required class="form-control"></td>
+				</tr>
+				<tr>
+					<th >Amount</th>
+					<td><input type="text" name="a" required class="form-control" value="{{data['res'][0]['amount']}}" ></td>
+				</tr>
+				
+				<tr>
+					<th>Details</th>
+					<td><input type="text" name="det" value="{{data['res'][0]['details']}}" required class="form-control"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" name="update" value="UPDATE" class="btn btn-info"></td>
+				</tr>
+			</table>
+
+		{% else %}
+
+
+			<h2>MANAGE VENUE</h2>
+			<table class="table" style="width: 600px;color: white">
+				<tr>
+					<th >Venue</th>
+					<td><input type="text" name="venue" required class="form-control"></td>
+				</tr>
+				<tr>
+					<th >Place</th>
+					<td><input type="text" name="pl" required class="form-control"></td>
+				</tr>
+				<tr>
+					<th >Amount</th>
+					<td><input type="text" name="a" required class="form-control"></td>
+				</tr>
+				
+				<tr>
+					<th >Details</th>
+					<td><input type="text" name="det" required class="form-control"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" name="submit" value="ADD" class="btn btn-info"></td>
+				</tr>
+			</table>
+			<br>
+			{% endif %}
+			
+  </div>
+  </section><!-- End Hero -->
+		<center>
+			<h2>VENUE</h2>
+			<table class="table" style="width: 900px;">
+				<tr>
+					<th>Sl.no</th>
+					<th>Venue</th>
+					<th>Place</th>
+				
+					<th>Details</th>
+				</tr>
+				{% for row in data['venue'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{row['venue']}}</td>
+					<td>{{row['place']}}</td>
+					
+					<td>{{row['details']}}</td>
+					<td><a class="btn btn-warning btn-sm" href="?action=update&ids={{row['venue_id']}}">Update</a></td>
+						{% if row['vstatus']=='active' %}
+					<td><a href="?action=inactive&ids={{row['venue_id']}}" class="btn btn-warning ">Inactive</a></td>
+					{% endif %}
+					{% if row['vstatus']=='inactive' %}
+					<td><a href="?action=active&ids={{row['venue_id']}}" class="btn btn-warning">Active</a></td>
+					{% endif %}
+					<td><a class="btn btn-info" href="staff_manage_time_slot?id={{row['venue_id']}}">Add Time Slot</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+
+		</center>
+	</form>
+		
+{% include'footer.html' %}

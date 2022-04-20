@@ -1,0 +1,53 @@
+{% include'staff_header.html' %}
+
+   
+ <!-- ======= Hero Section ======= -->
+  <section id="hero" style="max-height: 500px;min-height: 500px">
+    <div class="hero-container">
+     <!--  <h3></h3> -->
+      
+     
+    </div>
+  </section><!-- End Hero -->
+
+
+		<center>
+			<h2>Bookings</h2>
+			<table class="table" style="width: 1000px;">
+				<tr>
+					<th>Sl.no</th>
+					<th>Customer</th>
+					<th>Phone</th>
+					<th>Email</th>
+					<th>Time</th>
+					<th>Date</th>
+					<th>Amount</th>
+					<th>Booking Date</th>
+					<th>Status</th>
+				</tr>
+				{% for row in data['book'] %}
+				<tr>
+				<td>{{loop.index}}</td>
+					<td>{{row['first_name']}} {{row['last_name']}}</td>
+					<td>{{row['phone']}}</td>
+					<td>{{row['email']}}</td>
+					<td>{{row['time']}}</td>
+					<td>{{row['tdate']}}</td>
+					<td>{{row['amount']}}</td>
+					<td>{{row['bdate']}}</td>
+					{% if row['status']=="pending" %}
+					<td><a class="btn btn-info" href="?action=accept&id={{row['booking_id']}}">Accept</a></td>
+					<td><a class="btn btn-success" href="?action=reject&id={{row['booking_id']}}">Reject</a></td>
+					{% elif row['status']=='paid' %}
+					<td><a class="btn btn-warning" href="staff_view_payments?id={{row['booking_id']}}">View Payments</a></td>
+					{% else %}
+					<td>{{row['status']}}</td>
+					{% endif %}
+				</tr>
+				{% endfor %}
+			</table>
+
+		</center>
+	</form>
+		
+{% include'footer.html' %}

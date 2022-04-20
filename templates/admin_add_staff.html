@@ -1,0 +1,123 @@
+{% include "admin_header.html" %}
+
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+   
+											
+										
+<center>
+	<form method="post">
+	{% if data['updatess'] %}
+	<h1>Update Staff</h1>
+	<table class="table" style="width: 600px;color: white">
+		<tr>
+			<th>First Name</th>
+			<td><input type="text" required="" class="form-control" name="fname" value="{{data['updatess'][0]['first_name']}}"></td>
+		</tr>
+		<tr>
+			<th>Last Name</th>
+			<td><input type="text" required="" class="form-control" name="lname" value="{{data['updatess'][0]['last_name']}}"></td>
+		</tr>
+		<tr>
+			<th>House Name</th>
+			<td><input type="text" required="" class="form-control" name="hname" value="{{data['updatess'][0]['house_name']}}"></td>
+		</tr>
+		<tr>
+			<th>Place</th>
+			<td><input type="text" required="" class="form-control" name="place" value="{{data['updatess'][0]['place']}}"></td>
+		</tr>
+		<tr>
+			<th>Phone</th>
+			<td><input type="text" required="" class="form-control" name="phone" value="{{data['updatess'][0]['phone']}}"></td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td><input type="email" required="" class="form-control" name="email" value="{{data['updatess'][0]['email']}}"></td>
+		</tr>
+		
+	
+		<tr>
+			
+			<td><input type="submit" class="btn btn-success"  name="submits" value="submit"></td>
+		</tr>
+	</table>
+	{% else %}
+		
+	<h1>Manage Staff</h1>
+	<table class="table" style="width: 600px;color: white">
+		<tr>
+			<th>First Name</th>
+			<td><input type="text" required="" class="form-control" name="fname"></td>
+		</tr>
+		<tr>
+			<th>Last Name</th>
+			<td><input type="text" required="" class="form-control" name="lname"></td>
+		</tr>
+		<tr>
+			<th>House Name</th>
+			<td><input type="text" required="" class="form-control" name="hname"></td>
+		</tr>
+		<tr>
+			<th>Place</th>
+			<td><input type="text" required="" class="form-control" name="place"></td>
+		</tr>
+		<tr>
+			<th>Phone</th>
+			<td><input type="text" required="" class="form-control" name="phone"></td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td><input type="email" required="" class="form-control" name="email"></td>
+		</tr>
+		
+		<tr>
+			<th>Password</th>
+			<td><input type="password" minlength="5" required="" class="form-control" name="pwd"></td>
+		</tr>
+		<tr>
+			
+			<td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="btn btn-success"></td>
+		</tr>
+	</table>
+	{% endif %}
+
+	</form>
+</div>
+  </section><!-- End Hero -->
+		<center>
+	<h1>Staff Details</h1>
+	<table class="table" style="width: 1000px">
+		<tr>
+			<th>Sl No</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>House Name</th>
+			<th>Place</th>
+			<th>Phone</th>
+			<th>Email</th>
+		</tr>
+
+		{% for row in data['staff'] %}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{row['first_name']}}</td>
+			<td>{{row['last_name']}}</td>
+			<td>{{row['house_name']}}</td>
+			<td>{{row['place']}}</td>
+			<td>{{row['phone']}}</td>
+			<td>{{row['email']}}</td>
+			<td><a class="btn btn-warning" href="?action=update&sid={{row['username']}}">Update</a></td>
+			{% if row['fstatus']=='active' %}
+					<td><a href="?action=inactive&sid={{row['username']}}" class="btn btn-warning ">Inactive</a></td>
+					{% endif %}
+					{% if row['fstatus']=='inactive' %}
+					
+					<td><a href="?action=active&sid={{row['username']}}" class="btn btn-warning">Active</a></td>
+					{% endif %}
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+{% include "footer.html" %}

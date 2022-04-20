@@ -1,0 +1,149 @@
+{% include'admin_header.html' %}
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+     <!--  <h3></h3> -->
+      
+     
+    
+
+	<center>
+		<form method="post">
+		<center>
+
+				{% if data['res'] %}
+			<h2>Update Time Slot</h2>
+			<table class="table" style="width: 800px;color: white">
+				<!-- <tr>
+					<th>Time </th>
+					<td>
+								<select name="slot" required="" class="form-control">
+							<option value="12.00AM-1.00AM" >12.00AM-1.00AM</option>
+							<option value="1.00AM-2.00AM" >1.00AM-2.00AM</option>
+							<option value="3.00AM-4.00AM">3.00AM-4.00AM</option>	
+							<option value="4.00AM-5.00AM">4.00AM-5.00AM</option>
+							<option value="5.00AM-6.00AM" >5.00AM-6.00AM</option>
+							<option value="6.00AM-7.00AM" >6.00AM-7.00AM</option>
+							<option value="7.00AM-8.00AM">7.00AM-8.00AM</option>	
+							<option value="8.00AM-9.00AM">8.00AM-9.00AM</option>
+							<option value="9.00AM-10.00AM">9.00AM-10.00AM</option>
+							<option value="10.00AM-11.00AM" >10.00AM-11.00AM</option>
+							<option value="11.00AM-12.00PM" >11.00AM-12.00PM</option>
+							<option value="12.00PM-1.00PM" >12.00PM-1.00PM</option>
+							<option value="1.00PM-2.00PM" >1.00PM-2.00PM</option>
+							<option value="3.00PM-4.00PM">3.00PM-4.00PM</option>	
+							<option value="4.00PM-5.00PM">4.00PM-5.00PM</option>
+							<option value="5.00PM-6.00PM" >5.00PM-6.00PM</option>
+							<option value="6.00PM-7.00PM" >6.00PM-7.00PM</option>
+							<option value="7.00PM-8.00PM">7.00PM-8.00PM</option>
+							<option value="8.00PM-9.00PM">8.00PM-9.00PM</option>
+							<option value="9.00PM-10.00PM">9.00PM-10.00PM</option>
+							<option value="11.00PM-12.00PM" >11.00PM-12.00PM</option>
+						</select>
+
+
+						
+				</tr> -->
+				<tr>
+					<th>Date</th>
+					<td><input type="date" name="date" min="{{ data['today'] }}" value="{{data['res'][0]['date']}}" required class="form-control" min="{{ data['today'] }}"></td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="center"><input type="submit" name="update" value="UPDATE" class="btn btn-info"></td>
+				</tr>
+			</table>
+
+		{% else %}
+
+
+			<h2>MANAGE TIME SLOT</h2>
+			<table class="table" style="width: 800px;color: white">
+				<!-- <tr>
+					<th>Time </th> -->
+					<!-- <td>
+						<select name="slot" required="" class="form-control">
+							<option value="12.00AM-1.00AM" >12.00AM-1.00AM</option>
+							<option value="1.00AM-2.00AM" >1.00AM-2.00AM</option>
+							<option value="3.00AM-4.00AM">3.00AM-4.00AM</option>	
+							<option value="4.00AM-5.00AM">4.00AM-5.00AM</option>
+							<option value="5.00AM-6.00AM" >5.00AM-6.00AM</option>
+							<option value="6.00AM-7.00AM" >6.00AM-7.00AM</option>
+							<option value="7.00AM-8.00AM">7.00AM-8.00AM</option>	
+							<option value="8.00AM-9.00AM">8.00AM-9.00AM</option>
+							<option value="9.00AM-10.00AM">9.00AM-10.00AM</option>
+							<option value="10.00AM-11.00AM" >10.00AM-11.00AM</option>
+							<option value="11.00AM-12.00PM" >11.00AM-12.00PM</option>
+							<option value="12.00PM-1.00PM" >12.00PM-1.00PM</option>
+							<option value="1.00PM-2.00PM" >1.00PM-2.00PM</option>
+							<option value="3.00PM-4.00PM">3.00PM-4.00PM</option>	
+							<option value="4.00PM-5.00PM">4.00PM-5.00PM</option>
+							<option value="5.00PM-6.00PM" >5.00PM-6.00PM</option>
+							<option value="6.00PM-7.00PM" >6.00PM-7.00PM</option>
+							<option value="7.00PM-8.00PM">7.00PM-8.00PM</option>
+							<option value="8.00PM-9.00PM">8.00PM-9.00PM</option>
+							<option value="9.00PM-10.00PM">9.00PM-10.00PM</option>
+							<option value="11.00PM-12.00PM" >11.00PM-12.00PM</option>
+						</select>
+
+
+						</td>
+				</tr> -->
+				<tr>
+					<tr>
+					<th>Date</th>
+					<td><input type="date" name="date" min="{{ data['today'] }}" required class="form-control"></td>
+				</tr>
+				
+					<td colspan="2" align="center"><input type="submit" name="submit" value="ADD" class="btn btn-info"></td>
+				</tr>
+			</table>
+
+			<br>
+			{% endif %}
+			</form>
+</div>
+  </section><!-- End Hero -->
+		<center>
+			<h2>Time Slot</h2>
+
+			<form method="post">
+				<table class="table" style="width: 600px;" align="center">
+					<tr>
+						<td align="center"><input type="date" class="form-control" style="width:300px" name="datess"></td><td><input type="submit" name="submits" value="Search" class="btn btn-success"></td>
+					</tr>
+				</table>
+			</form>
+				
+			</table>
+			<table class="table" style="width: 600px;">
+				
+
+				<tr>
+					<th>Sl.no</th>
+					<th>Time </th>
+					<th>Date</th>
+					
+				</tr>
+				{% for row in data['time'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{row['time']}}</td>
+					<td>{{row['date']}}</td>
+					
+					
+						{% if row['mstatus']=='active' %}
+					<td><a href="?action=inactive&ids={{row['timeslot_id']}}&id={{data['id']}}" class="btn btn-warning ">Inactive</a></td>
+					{% endif %}
+					{% if row['mstatus']=='inactive' %}
+					<td><a href="?action=active&ids={{row['timeslot_id']}}&id={{data['id']}}" class="btn btn-warning">Active</a></td>
+					{% endif %}
+				</tr>
+				{% endfor %}
+			</table>
+
+		</center>
+	</form>
+		
+{% include'footer.html' %}

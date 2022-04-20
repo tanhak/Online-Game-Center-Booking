@@ -1,0 +1,46 @@
+{% include'customer_header.html' %}
+
+   
+ <!-- ======= Hero Section ======= -->
+  <section id="hero" style="max-height: 500px;min-height: 500px">
+    <div class="hero-container">
+     <!--  <h3></h3> -->
+      
+     
+    </div>
+  </section><!-- End Hero -->
+
+
+		<center>
+			<h2>Bookings</h2>
+			<table class="table" style="width: 1200px;">
+				<tr>
+					<th>Sl.no</th>
+					<th>Booking ID</th>
+					<th>Time Slot</th>
+					<th>Total</th>
+					<th>Date</th>
+					<th>Status</th>
+					
+				</tr>
+				{% for row in data['book'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>BK_{{row['booking_id']}}</td>
+					<td><a class="btn btn-success" href="customer_view_booked_timeslot?id={{row['booking_id']}}">Timeslot</a></td>
+					<td>{{row['total']}}</td>
+					<td>{{row['date']}}</td>
+					{% if row['status']=="pending" %}
+					<td><a class="btn btn-info" href="customer_make_payment?id={{row['booking_id']}}&amt={{row['total']}}">Payment</a></td>
+					{% else %}
+					<td>{{row['status']}}</td>
+					{% endif %}
+					
+				</tr>
+				{% endfor %}
+			</table>
+
+		</center>
+	</form>
+		
+{% include'footer.html' %}

@@ -1,0 +1,41 @@
+{% include'admin_header.html' %}
+
+   
+ <!-- ======= Hero Section ======= -->
+  <section id="hero" style="max-height: 550px;min-height: 500px">
+    <div class="hero-container">
+     <!--  <h3></h3> -->
+      
+     
+    </div>
+  </section><!-- End Hero -->
+
+
+		<center>
+			<br><br>
+			<a class="btn btn-success" href="admin_print_customers">Print</a>
+			<h2>Customer</h2>
+			<table class="table" style="width: 1200px;">
+				<tr>
+					<th>Sl.no</th>
+					<th>Customer</th>
+					<th>Place</th>
+					<th>Phone</th>
+					<th>Email</th>
+				</tr>
+				{% for row in data['customer'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{row['first_name']}} {{row['last_name']}}</td>
+					<th>{{row['place']}}</th>
+					<td>{{row['phone']}}</td>
+					<td>{{row['email']}}</td>
+					
+				</tr>
+				{% endfor %}
+			</table>
+
+		</center>
+	</form>
+		
+{% include'footer.html' %}

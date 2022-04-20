@@ -1,0 +1,66 @@
+{% include'admin_header.html' %}
+
+   
+ <!-- ======= Hero Section ======= -->
+  <section id="hero" style="max-height: 550px;min-height: 500px">
+    <div class="hero-container">
+     <!--  <h3></h3> -->
+      
+     
+    </div>
+  </section><!-- End Hero -->
+
+
+		<center>
+			<br><br>
+			<a class="btn btn-success" href="admin_print_bookings">Print</a><br><br>
+
+<form method="post">
+			<table class="table" style="width: 800px;font-size:16px">
+
+		<tr>
+			<th>From date</th>
+			<td><input type="date" placeholder="Search Here..." required class="form-control" name="fd"></td>
+		</tr>
+		<tr>
+			<th>To date</th>
+			<td><input type="date" placeholder="Search Here..." required class="form-control" name="td"></td>
+		</tr>
+			<td colspan="2" align="center"><input class="btn btn-primary" type="submit" name="submit" value="Search"></td>
+			</tr>
+		</table>
+</form>
+			<h2>Bookings</h2>
+			<table class="table" style="width: 1200px;">
+				<tr>
+					<th>Sl.no</th>
+					<th>Booking ID</th>
+					<th>Customer</th>
+					<th>Phone</th>
+					<th>Email</th>
+					<th>Venue</th>
+					<th>Time</th>
+					<th>Date</th>
+					<th>Amount</th>
+					<th>Booking Date</th>
+				</tr>
+				{% for row in data['bkk'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>BK_{{row['booking_id']}}</td>
+					<td>{{row['first_name']}} {{row['last_name']}}</td>
+					<td>{{row['phone']}}</td>
+					<td>{{row['email']}}</td>
+					<td>{{row['venue']}}</td>
+					<td>{{row['time']}}</td>
+					<td>{{row['tdate']}}</td>
+					<td>{{row['amount']}}</td>
+					<td>{{row['bdate']}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+
+		</center>
+	</form>
+		
+{% include'footer.html' %}

@@ -1,0 +1,53 @@
+{% include "customer_header.html" %}
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+     <!--  <h3></h3> -->
+     
+     
+   									
+									
+		
+<form method="post">
+	<center>
+		<h1>COMPLAINTS</h1>
+		<table class="table" style="width: 600px;color: white">
+			<tr>
+				<th>Complaint</th>
+				<td><textarea required="" class="form-control"  name="Complaint"></textarea></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" class="btn btn-info" value="sent" name="submit"></td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		 </div>
+  </section><!-- End Hero -->	
+
+		<center>
+		<h1>REPLY</h1>
+		<table class="table" style="width: 700px">
+			<tr>
+				<th>Sno</th>
+				<th>Complaint</th>
+				<th>Reply</th>
+				<th>Date and time</th>
+			</tr>
+
+			{% for row in data['complaints'] %}
+
+			<tr>
+				<td>{{ loop.index }}</td>
+				<td>{{ row['complaint'] }}</td>
+				<td>{{ row['reply'] }}</td>
+				<td>{{ row['date'] }}</td>
+			</tr>
+
+			{% endfor %}
+
+		</table>
+	</center>
+</form>
+{% include "footer.html" %}

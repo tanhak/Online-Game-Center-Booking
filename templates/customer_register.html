@@ -1,0 +1,55 @@
+{% include 'public_header.html'%}
+
+
+ <section id="hero">
+    <div class="hero-container">
+     
+
+
+							<form method="post" enctype="multipart/form-data">
+								<br><br><br>
+	<center>
+		<h3>CUSTOMER REGISTRATION</h3>
+	<table class="table" style="width: 600px;color: white">
+		<tr>
+			<th>First Name</th>
+			<td><input type="text" required="" class="form-control" name="fn"></td>
+		</tr>
+		<tr>
+			<th>Last Name</th>
+			<td><input type="text" required="" class="form-control" name="ln"></td>
+		</tr>
+		<tr>
+			<th>Place</th>
+			<td><input type="text" required="" class="form-control" name="pl"></td>
+	   	</tr>
+		 <tr>
+	 		<th>Phone</th>
+	 		<td><input type="text" required="" pattern="[0-9]{10}" class="form-control" name="ph"></td>
+		 </tr>
+		<tr>
+			<th>Email</th>
+			<td><input type="text" required="" pattern=".+@gmail\.com" class="form-control" name="em"></td>
+		</tr>
+		<tr>
+			<th>password</th>
+			<td><input type="password" minlength="5" class="form-control" name=""required="" minlength="8" class="form-control" name="pwd"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="submit" class="btn btn-success" name="submit" value="REGISTER"></td>
+		</tr>
+
+	</table>
+	</center>
+</form>
+							
+
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+
+				
+{% include 'footer.html'%}

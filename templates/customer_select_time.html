@@ -1,0 +1,64 @@
+{% include'customer_header.html' %}
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero" style="height: 500px">
+    <div class="hero-container">
+     <!--  <h3></h3> -->
+      
+     
+    
+
+	<center>
+		<form method="post">
+		<center>
+			<h1 style="font-family: monospace;font-style: italic;">Select Time</h1>
+			<!-- <table class="table" style="width: 500px;color: white">
+				<tr>
+					<tr>
+					<th>Date</th>
+					<td>
+						<select name="time" required="" class="form-control">
+						{% for row in data['tm'] %}
+						<option value="{{row['timeslot_id']}}">{{row['time']}} </option>
+						{% endfor %}
+						</select>
+					</td>
+				</tr>
+				
+					<td colspan="2" align="center"><input type="submit" name="add" value="ADD" class="btn btn-info"></td>
+				</tr>
+			</table> -->
+			<br>		
+</div>
+  </section><!-- End Hero -->
+
+ <!-- ======= Features Section ======= -->
+        
+    <section id="features" class="features">
+      <div class="container">
+        <div class="row">  
+         {% for row in data['tm'] %}    
+          <div class="col-lg-3 col-md-4 col-6">
+           <!--  <div class="icon-box"> -->
+              <a href="?action=book&tid={{row['timeslot_id']}}&id={{data['id']}}&amt={{data['amt']}}&date={{data['date']}}">
+              <i class="ri-calendar-todo-line" style="color: black;"></i>
+                <h5 style="font-size: 21px;font-family: monospace;font-style: italic;"> <th>Time :</th><td>{{row['time']}}</td>
+                
+                 <br>
+               </a>
+            </div>
+         <!--  </div> -->
+           {% endfor %}
+        </div>
+ 
+      </div>
+    </section>
+   
+    <!-- End Features Section -->
+
+
+
+
+	</form>
+		
+{% include'footer.html' %}

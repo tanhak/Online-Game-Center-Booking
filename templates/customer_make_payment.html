@@ -1,0 +1,66 @@
+{% include 'customer_header.html' %}
+											
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+     <!--  <h3></h3> -->
+      
+     
+ 							
+		
+<center>
+	<style type="text/css">
+td{background-color: transparent;font-weight: 2px;color: black}
+hr{border-color: orange}
+#b {
+	border: 1px solid grey; 
+	padding: 10px;
+}
+
+</style>
+<br>
+<div align="center"> 
+	<form method="post">
+		<h2 style="color: white"> Payment </h2><br>
+		<h3 style="color: white"> *NOTE: Please double check before proceeding to Pay, any payment made will not be refunded. </h3><br>
+		<table style="width: 400px; border-radius: 5px;color: white" class="table table-borderless" id="b"> 
+			<tr> 
+				<th>PAYMENT DETAILS</th> 
+				<td colspan="2" align="right"><img src="/static/card.png" style="width:70%"></td>
+			</tr>
+			<tr> 
+				<th colspan="2"> <small>CARD NUMBER</small><br> 
+					<input type="text" placeholder="Enter a valid card number"  class="form-control" required pattern="[0-9]{16}" title="Enter 16 digit Card number">
+
+				</th> 
+			</tr>
+			<tr> 
+				<th > <small>CVV</small><br> 
+					<input type="text" placeholder="CVV"  class="form-control" required pattern="[0-9]{3}" title="Enter 3 digit CV number">
+				</th> 
+				<th> <small>EXPIRATION DATE</small><br> 
+					<input type="text" placeholder="MM/YY"  class="form-control" required pattern="[0-9,/]{5}" title="Enter month and year"> 
+				</th>
+			</tr>
+			<tr> 
+				<th colspan="2"> <small>CARD HOLDER</small><br> 
+					<input type="text" placeholder="Name on card"  class="form-control" data-valid='only-text' required > 
+				</th>
+			</tr>
+			<tr> 
+				<td colspan="2" >
+					<h6 style="color: white">Amount : {{data['amt']}}</h6>
+				</td>
+			</tr>
+			<tr> 
+				<td colspan="2"> 
+					<input type="submit" value="PAY"  class="btn btn-success" style="width: 100%" name="pay">
+				</td>
+			</tr>
+		</table>
+	</div>
+</form>
+</center>
+	   </div>
+  </section><!-- End Hero -->		
+{% include 'footer.html' %}

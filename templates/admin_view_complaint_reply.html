@@ -1,0 +1,49 @@
+{% include "admin_header.html" %}
+ 
+
+ <!-- ======= Hero Section ======= -->
+  <section id="hero" style="max-height: 500px;min-height: 500px">
+    <div class="hero-container">
+     <!--  <h3></h3> -->
+      <h1>Complaints</strong></h1>
+     
+    </div>
+  </section><!-- End Hero -->
+
+<center>
+	<form method="post">
+		
+		<br>
+		<table class="table" style="width: 800px">
+			<tr>
+				<th>Sl No</th>
+				<th>customer Name</th>
+				<th>Complaint</th>
+				
+				<th>Date-time</th>
+				<th>Reply</th>
+				
+			</tr>
+			{% for row in data['complaints'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['name']}}</td>
+				<td>{{row['complaint']}}</td>
+				
+				<td>{{row['date']}}</td>
+				{% if row['reply'] == "pending" %}
+				<td>
+					<input type="text" class="form-control" name="reply{{loop.index}}" class="form-control">
+					<input type="submit" name="submit{{loop.index}}" value="Submit" class="btn btn-success">
+				</td>
+				{% else %}
+				<td>{{row['reply']}}</td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+		</table>
+	</form>
+	
+		
+</center>
+{%include "footer.html" %}

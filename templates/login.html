@@ -1,0 +1,36 @@
+{% include 'public_header.html' %}
+
+
+ <section id="hero">
+    <div class="hero-container">
+      
+	<form method="post">
+		<center>
+			<h2>LOGIN</h2>
+			<table class="table" style="width: 500px;color: white;">
+				<tr>
+					<th>Email</th>
+					<td><input type="text" name="uname"  class="form-control" ></td>
+				</tr>
+				<tr>
+					<th>Password</th>
+					<td><input type="password" name="pwd"  class="form-control" ></td>
+				</tr>
+				<tr>
+					<td colspan="2"  align="center"><input type="submit" name="submit" value="LOGIN" class="btn btn-danger">&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="submit" name="forgotpassword" value="Forgot Password" class="btn btn-warning"></td>
+				</tr>
+			</table>
+		</center>
+	</form>
+								
+
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+						
+	
+{% include'footer.html' %}

@@ -1,0 +1,32 @@
+{% include "staff_header.html" %}
+ 
+
+ <!-- ======= Hero Section ======= -->
+  <section id="hero" style="max-height: 500px;min-height: 500px">
+    <div class="hero-container">
+     <!--  <h3></h3> -->
+      <h1>Payments</strong></h1>
+     
+    </div>
+  </section><!-- End Hero -->
+
+<center>
+	<form method="post">
+		
+		<br>
+		<table class="table" style="width: 800px">
+			<tr>
+				<th>Sl No</th>
+				<th>Amount</th>
+				<th>Date</th>
+			</tr>
+			{% for row in data['pay'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['amount']}}</td>
+				<td>{{row['date']}}</td>
+			</tr>
+			{%endfor%}
+		</table>
+	</form>
+{%include 'footer.html' %}

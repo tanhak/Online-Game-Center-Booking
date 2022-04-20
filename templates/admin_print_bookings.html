@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script> 
+		function printDiv() { 
+			var divContents = document.getElementById("div_print").innerHTML; 
+			var a = window.open('', '', 'height=500, width=500'); 
+			a.document.write(divContents); 
+			a.document.close(); 
+			a.print(); 
+		} 
+	</script> 
+<body onload="printDiv()">
+	<div id="div_print" >
+<center>
+	
+<h1 style="padding-top: 30px;font-size: 60px">Game Center Booking</h1>
+
+<p style="padding-top: 30px;font-size: 60px;font-style: italic;font-family: monospace;font-size: 20px;margin-left: 250px;margin-bottom: 20px" align="left">Email : gamecenter@gmail.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date :{{data['today']}}</p>
+<p style="padding-top: 30px;font-size: 60px;font-style: italic;font-family: monospace;font-size: 20px;margin-left: 250px;margin-bottom: 20px" align="left">Phone : 8907689709&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time :{{data['current_time']}}</p>
+<h1>Booking Report</h1>
+<table class="table" style="width: 1400px;color: black;font-style: italic;font-family: monospace;font-size: 22px" border="5">
+	
+		<tr>
+					<th>Sl.no</th>
+					<th>Booking ID</th>
+					<th>Customer</th>
+					<th>Phone</th>
+					<th>Email</th>
+					<th>Venue</th>
+					<th>Time</th>
+					<th>Date</th>
+					<th>Amount</th>
+					<th>Booking Date</th>
+				</tr>
+				{% for row in data['book'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>BK_{{row['booking_id']}}</td>
+					<td>{{row['first_name']}} {{row['last_name']}}</td>
+					<td>{{row['phone']}}</td>
+					<td>{{row['email']}}</td>
+					<td>{{row['venue']}}</td>
+					<td>{{row['time']}}</td>
+					<td>{{row['tdate']}}</td>
+					<td>{{row['amount']}}</td>
+					<td>{{row['bdate']}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+</center>
+</body>
+</html>
+

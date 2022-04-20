@@ -1,0 +1,36 @@
+{% include'customer_header.html' %}
+ <!-- ======= Hero Section ======= -->
+  <section id="hero" style="max-height: 500px;min-height: 500px">
+    <div class="hero-container">
+     <!--  <h3></h3> -->
+      
+     
+    </div>
+  </section><!-- End Hero -->
+
+		<center>
+			<h2>Time Slot</h2>
+			<table class="table" style="width: 700px;">
+				<tr>
+					<th>Sl.no</th>
+					<th>Time Slot</th>
+					<th>From Time</th>
+					<th>To Time</th>
+					<th>Amount</th>
+				</tr>
+				{% for row in data['time'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{row['timeslot']}}</td>
+					<td>{{row['fromtime']}}</td>
+					<td>{{row['totime']}}</td>
+					<td>{{row['amount']}}</td>
+					<td><a class="btn btn-danger btn-sm" href="?action=book&time_id={{row['timeslot_id']}}&amt={{row['amount']}}">Book</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+
+		</center>
+	</form>
+		
+{% include'footer.html' %}

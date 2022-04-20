@@ -1,0 +1,30 @@
+{% include'customer_header.html' %}
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+     <!--  <h3></h3> -->
+      
+      
+    
+
+	<center>
+		<form method="post">
+		<center>
+			<h2>Select Time Slot</h2>
+			<table class="table" style="width: 500px;color: white">
+				<tr>
+					<tr>
+					<th>Date</th>
+					<td><input class="form-control" min="{{ data['today'] }}" type="date" name="date"></td>	
+				</tr>
+				
+					<td colspan="2" align="center"><input type="submit" name="add" value="NEXT" class="btn btn-info"></td>
+				</tr>
+			</table>
+			<br>		
+</div>
+  </section><!-- End Hero -->
+	</form>
+		
+{% include'footer.html' %}

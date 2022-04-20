@@ -1,0 +1,53 @@
+{% include'customer_header.html' %}
+
+
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+     <!--  <h3></h3> -->
+     
+     
+  
+
+<center>
+		<form method="post">
+		<center>
+
+			<h2>My Profile</h2>
+			<table class="table" style="width: 800px;color: white">
+				<tr>
+					<th>First Name</th>
+					<td><input type="text" name="fn" value="{{data['res'][0]['first_name']}}" required pattern="[a-zA-Z\s]{0,30}" title="enter alphabets only" class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Last Name</th>
+					<td><input type="text" name="ln" value="{{data['res'][0]['last_name']}}" required class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Place</th>
+					<td><input type="text" name="pl" value="{{data['res'][0]['place']}}" required class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Phone</th>
+					<td><input type="text" name="ph" value="{{data['res'][0]['phone']}}" required class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Password</th>
+					<td><input type="text" name="ps" value="{{data['res'][0]['password']}}" required class="form-control"></td>
+				</tr>
+				<!-- <tr>
+					<th>Email</th>
+					<td><input type="email" name="em" value="{{data['res'][0]['email']}}" required class="form-control"></td>
+				</tr> -->
+				<tr>
+					<td colspan="2" align="center"><input type="submit" name="update" value="UPDATE" class="btn btn-info"></td>
+				</tr>
+			</table>
+
+
+			  </div>
+  </section><!-- End Hero -->
+
+
+{% include'footer.html' %}
